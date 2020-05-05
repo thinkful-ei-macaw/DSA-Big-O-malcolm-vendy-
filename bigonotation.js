@@ -135,3 +135,83 @@ function efficientSearch(array, item) {
   }
   return -1;
 }
+
+//9.Random Element
+//input n --> 1
+//1 operation
+//O(1)
+function findRandomElement(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// 10. What am I?
+// this function determines if a number is a prime number
+// input n
+// as the input grows, we run n operations
+// O(n) => linear complexity
+function isWhat(n) {
+  if (n < 2 || n % 1 !== 0) {
+    return false;
+  }
+  for (let i = 2; i < n; ++i) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
+
+//11.Tower of Hanoi
+//input A,B,C -> output A,B,C
+function TOH(n,s,d,t){
+  //base case
+  if(n === 1){
+    print(s,d);
+  }
+  //recursive case
+  TOH(n-1,s,t+1,d); //TOH A->B
+  TOH(n-1,)
+}
+function print(a,b){
+  console.log(`Moving ${a} to ${b}`);
+}
+
+
+//O(2^n) exonential complexity
+//2 operations performed on n(#) of items
+function towerOfHanoi(discs) {
+
+  const poles = { "A": [], "B": [], "C": [] };
+  let moves = 0;
+
+  // put the discs on the first pole
+  for (let i = discs; i > 0; i--) poles["A"].push(i);
+
+  const hanoi = (discs, source, destination, temp) => {
+    if (discs === 1) {
+      print(source, destination);
+    } else {
+      // move all others discs to temp pole
+      hanoi(discs - 1, source, temp, destination);
+      // print that move
+      print(source, destination);
+      // move other discs from temp pole to original destination
+      hanoi(discs - 1, temp, destination, source); 
+    }
+  }
+
+  const print = (source, destination) => {
+    const disc = poles[source].pop()
+    poles[destination].push(disc);
+    moves++
+
+    console.log(`Moving "${disc}" from ${source} -> ${destination}`);
+    console.log(poles, '\n');
+  }
+
+  // do it
+  console.log(poles, '\n');
+  hanoi(discs, "A", "C", "B");
+  console.log(moves);
+
+}
+
+towerOfHanoi(5);
