@@ -22,7 +22,7 @@ All sheep jumped over the fence
  * @returns  none
  * @display  displays how many sheep jumped over the fence
  */
-
+//linear complexity O(n)
 function countSheep(num) {
   //stopping condition of base case
   if (num === 0) {
@@ -42,7 +42,7 @@ function countSheep(num) {
 * `powerCalculatorRec(10,2)`  should return `100`
 * `powerCalculatorRec(10,-2)`  should return `exponent should be >= 0`
 */
-
+//Linear complexity, O(n), 1 operation for each case
 const powerCalculatorRec = function (base, exponent) {
   if (exponent < 0) {
     return 'exponent should be >= 0';
@@ -64,7 +64,7 @@ reverse the string, and return the new string.
 Input: 'tauhida'
 Output: adihuat
 */
-
+// linear complexity => O(n) - runs through the string once (n operations)
 function reverseString(str) {
   if (str.length < 2) {
     return str;
@@ -95,6 +95,7 @@ Output: 15
 
 */
 //Should always return n*(n+1)/2
+//linear complexity O(n)
 function triangle(n) {
   if (n < 2) return n;
   return n + triangle(n - 1);
@@ -108,6 +109,7 @@ Split a string based upon a separator (similar to String.prototype.split).
 Input: '1/21/2018'
 Output: 1212018 OR ["1", "21", "2018"]
 */
+// linear complexity => O(n)
 function split(str, sep) {
   var idx = str.indexOf(sep);
   if (idx == -1) return [str];
@@ -132,6 +134,8 @@ Input: 5
 Output: 120
 
 */
+
+//linear complexity O(n) 
 function factorial(n) {
   // Base Case - when n is equal to 0, we stop the recursion
   if (n === 0) {
@@ -154,6 +158,7 @@ The sequence looks as follows: 1 1 2 3 5 8 13.
 Input: 7
 Output: 13
 */
+// exponential complexity => O(2^n)
 function fibonacci(n) {
   // Base case
   if (n <= 0) {
@@ -184,7 +189,7 @@ The Maze is represented as a NM matrix (in the above case, a 5X7 array). The sta
 
 For the above maze, a possible exit can be RRDDLLDDRRRRRR
 */
-
+// exponential complexity => O(c^n)=> O(4^n)
 const maze = function (
   labyrinth,
   position = 0,
@@ -193,20 +198,22 @@ const maze = function (
   direction = 'S',
   path
 ) {
+    //base case
   if (col < 0 || row < 0) {
     return;
   }
   if (col >= labyrinth[0].length || row >= labyrinth.length) {
     return;
   }
-
+//path -> steps
   path[position] = direction;
-  position++;
-
+  position++; //steps taken
+//reach the exit, 2nd base case
   if (labyrinth[row][col] === 'e') {
     PrintPath(path, 1, position - 1);
     return;
   }
+
   if (labyrinth[row][col] === ' ') {
     // The current cell is free. Mark it as visited
     labyrinth[row][col] = 's';
@@ -237,7 +244,7 @@ Path to the exit: RRDDRRUURRDDDD
 Path to the exit: RRDDRRRRDD
 
 */
-
+// exponential complexity => O(4^n)
 const mazeAll = function (
   labyrinth,
   position = 0,
@@ -292,7 +299,7 @@ Input:
 Output: 
 
 */
-
+//polynomial complexity O(n^c)
 function anagrams(prefix, str) {
   if (str.length <= 1) {
     console.log(`The anagram is ${prefix}${str}`);
@@ -381,11 +388,14 @@ let organization = {
     }
 }}};
 */
+//exponential complexity => O(c^n) => O(2^n)
+
+// { "DevTeam": { "John": {}, "Jane": {}, "Jill": {} }, "Marketing": {"..."} }
 function traverseA(data, depth = 0) {
   let indent = ' '.repeat(depth * 4);
-  Object.keys(data).forEach((key) => {
+  Object.keys(data).forEach((key) => { // O(n)
     console.log(indent + key);
-    traverseA(data[key], depth + 1);
+    traverseA(data[key], depth + 1); // O(n)
   });
 }
 //another version of the solution
@@ -399,7 +409,7 @@ function traverseB(node, indent = 0) {
 //Write a recursive function that prints out the binary representation of a given number.
 // input: 5
 //output: 101
-
+//linear complexity O(n)
 function binaryRep(input) {
   if (input <= 0) {
     return '';

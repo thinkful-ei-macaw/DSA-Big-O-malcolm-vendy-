@@ -1,4 +1,5 @@
-//1.counting sheep
+// 1.counting sheep
+// linear complexity => O(n)
 function sheepCounting(num) {
   for (let i = num; i >= 0; i--) {
     if (i === 0) {
@@ -10,6 +11,7 @@ function sheepCounting(num) {
 }
 
 // power calculator
+//linear complexity => O(n)
 function powerCalculator(base, exponent) {
   // to hold product at each step
   let currentValue = 1;
@@ -21,7 +23,9 @@ function powerCalculator(base, exponent) {
 
   return currentValue;
 }
-//Reverse string
+
+// Reverse string
+// linear complexity => O(n)
 function reverseString(str) {
   let result = str.split('');
   for (let i = 0; i < str.length; i++) {
@@ -45,6 +49,7 @@ function reverseString(str) {
 }
 
 // nth triangular number
+//linear complexity O(n)
 function nthTriangularNumber(n) {
   let sum = 0;
   for (let i = 1; i <= n; i++) {
@@ -55,6 +60,7 @@ function nthTriangularNumber(n) {
 }
 
 // String splitter
+// linear complexity => O(n)
 function stringSplitter(str, separator){
   //results = [10, 20, 2020]
   let results = [];
@@ -76,7 +82,20 @@ function stringSplitter(str, separator){
   return results;
 }
 
+//Factorial
+// linear complexity => O(n)
+function factorial(num){
+  //5
+  let results = 1;
+  //1   i = 
+  for(let i = num; i > 0 ; i--){
+    results *= i;
+  }
+  return results;
+}
+
 // fibonacci
+//linear complexity O(n)
 function fibonacci(num) {
   let sequence = [];
   for (let i = 1; i <= num; i++) {
@@ -89,16 +108,3 @@ function fibonacci(num) {
 
   return sequence;
 }
-
-
-//Factorial
-function factorial(num){
-  //5
-  let results = 1;
-  //1   i = 
-  for(let i = num; i > 0 ; i--){
-    results *= i;
-  }
-  return results;
-}
-console.log(factorial(5));
