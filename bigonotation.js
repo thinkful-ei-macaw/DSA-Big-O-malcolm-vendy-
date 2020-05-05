@@ -160,21 +160,6 @@ function isWhat(n) {
 }
 
 //11.Tower of Hanoi
-//input A,B,C -> output A,B,C
-function TOH(n,s,d,t){
-  //base case
-  if(n === 1){
-    print(s,d);
-  }
-  //recursive case
-  TOH(n-1,s,t+1,d); //TOH A->B
-  TOH(n-1,)
-}
-function print(a,b){
-  console.log(`Moving ${a} to ${b}`);
-}
-
-
 //O(2^n) exonential complexity
 //2 operations performed on n(#) of items
 function towerOfHanoi(discs) {
